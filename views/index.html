@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script type="text/javascript" src="/js/angular.min.js">    </script>
+    <script type="text/javascript" src="/js/index.js">    </script>
 </head>
-<body>
+<body ng-app="sample">
     welcome to the home page.
+    <div ng-controller="index">
+       {{firstName}} -{{lastName}} 
+    </div>
 </body>
 </html>
