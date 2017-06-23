@@ -1,12 +1,19 @@
 
-var app=angular.module('sample',[]);
+var app=angular.module('sample',['ngMaterial']);
 
-app.controller('index',['$scope','employeeService',function(s,es){
+app.controller('index',['$scope','employeeService','$mdSidenav',function(s,es,$mdSidenav){
     s.firstName='shashikant';
     s.lastName='Pandit';
     console.log('looking for employeeService');
     console.log(es)
     es.doSum();
+     s.showMobileMainHeader = true;
+    s.openSideNavPanel = function() {
+        $mdSidenav('left').open();
+    };
+    s.closeSideNavPanel = function() {
+        $mdSidenav('left').close();
+    };
 
 }]);
 app.provider('employeeService',function(){
