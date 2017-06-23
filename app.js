@@ -18,6 +18,9 @@ router.get("/calculate",function(req,res){
 app.get('/',function(res,res){
 res.render('index.html');
 }) 
+app.get('/github-home',function(res,res){
+res.render('templates/github-home.html');
+})
 app.use("/", router);
 app.listen(1234,function(){
     console.log('listening at port 1234');

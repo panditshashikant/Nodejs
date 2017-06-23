@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
 <style>
 
@@ -54,8 +55,9 @@
     display:none;
   }
 }
-
-
+.content-alignment{
+  margin:0px 120px 0px 120px;
+}
 </style>
 
 </head>
@@ -63,12 +65,12 @@
 <body ng-app="sample">
     <div ng-controller="index"> 
         
-   <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+   <md-sidenav class="md-sidenav-left md-whiteframe-z2 md-is-locked-open='true'"
 		md-component-id="left">
 	<md-toolbar layout="row">
 	 <div class="md-toolbar-tools">
         <h2>
-          <span>Github Links</span>
+          <span><a href="#/github" ng-click="closeSideNavPanel()">Github links</a></span>
         </h2>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="closeSideNavPanel()">
@@ -81,10 +83,11 @@
   <md-list>
 	  <md-subheader class="md-no-sticky">Favorites</md-subheader>
 	  <md-list-item>
-	    <a class="md-primary md-button md-ink-ripple" ng-transclude="" ng-href="#" href="#">
+      <p><a href="#/github/introduction" ng-click="closeSideNavPanel()">introduction</a></p>
+	    <!--<a class="md-primary md-button md-ink-ripple" ng-transclude="" ng-href="#" href="#">
             <span class="ng-scope">Git installation</span>
             <div class="md-ripple-container"></div>
-        </a>
+        </a>-->
 	  </md-list-item>
 	  <md-list-item>
 	    <md-icon class="md-default-theme" class="material-icons">&#xE878;</md-icon>
@@ -204,6 +207,7 @@
 
 
           </div>
+          <div class="content-alignment" ng-view></div>
 </body>
 
 </html>
