@@ -2,11 +2,19 @@ var express=require('express') ;
 var cors=require("cors");
 var ejs=require('ejs');
 var app=express();
+var topics= [{ID:1,name:'Github',title:'Github',links: [{ID:1,title:'introduction', url:'intro'},
+    {ID:2,title:'Iinstall git and Create a Repository', url:'repository'},{ID:3,title:'Create a Branch', url:'branch'},
+    {ID:4,title:'Make a commit', url:'commit'},
+    {ID:5,title:'Pull Request', url:'pull'},
+    {ID:6,title:'Push Request', url:'push'},
+    {ID:6,title:'Merge branch', url:'merge'},
+    ]}];
 app.use(cors());
 app.use(express.static(__dirname+ '/public') )
 app.set('view engine', 'ejs') ;
 app.set('views',__dirname+'/views'); 
-app.engine('html',ejs.renderFile); 
+app.set('view cache', false);
+//app.engine('html',ejs.renderFile); 
 var router=express.Router();
 router.get("/calculate",function(req,res){
     console.log('calculate the result.')
@@ -16,10 +24,17 @@ router.get("/calculate",function(req,res){
     res.send({result:parseInt(a)+parseInt(b)}) ;
 })
 app.get('/',function(res,res){
-res.render('index.html');
+    console.log(topics);
+res.render('index',{topic:'Training',topics:topics,topicContent:'home'});
 }) 
-app.get('/github-home',function(res,res){
-res.render('templates/github-home.html');
+app.get('/:topic',function(req,res,next){
+console.log(req.params.topic) 
+res.render('index',{topic:req.params.topic,topics,topicContent:'templates/github/home'});
+})
+app.get('/:topic/:url',function(req,res,next){
+console.log(req.params.url) 
+
+res.render('index',{topic:req.params.topic,topics,topicContent:'templates/'+req.params.topic+'/'+req.params.url});
 })
 app.use("/", router);
 app.listen(1234,function(){
