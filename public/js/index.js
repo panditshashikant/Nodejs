@@ -9,5 +9,4 @@ app.controller('index',['$scope','$mdSidenav',function(s,$mdSidenav){
     s.closeSideNavPanel = function(topic) {
         $mdSidenav('left').close();
     };
-
 }]);
