@@ -2,12 +2,13 @@ var express=require('express') ;
 var cors=require("cors");
 var ejs=require('ejs');
 var app=express();
-var topics= [{ID:1,name:'Github',title:'Github',links: [{ID:1,title:'introduction', url:'intro'},
-    {ID:2,title:'Iinstall git and Create a Repository', url:'repository'},{ID:3,title:'Create a Branch', url:'branch'},
-    {ID:4,title:'Make a commit', url:'commit'},
+var topics= [{ID:1,name:'Git',title:'Git',links: [{ID:1,title:'introduction', url:'intro'},
+    {ID:2,title:'Install git, create account on github and create repository.', url:'repository'},
+    {ID:3,title:'Git Clone', url:'clone'},
+    {ID:4,title:'Add files on staging and commit.', url:'commit'},
     {ID:5,title:'Pull Request', url:'pull'},
     {ID:6,title:'Push Request', url:'push'},
-    {ID:6,title:'Merge branch', url:'merge'},
+    // {ID:6,title:'Merge branch', url:'merge'},
     ]}];
 app.use(cors());
 app.use(express.static(__dirname+ '/public') )
@@ -29,7 +30,7 @@ res.render('index',{topic:'Training',topics:topics,topicContent:'home'});
 }) 
 app.get('/:topic',function(req,res,next){
 console.log(req.params.topic) 
-res.render('index',{topic:req.params.topic,topics,topicContent:'templates/github/home'});
+res.render('index',{topic:req.params.topic,topics,topicContent:'templates/git/home'});
 })
 app.get('/:topic/:url',function(req,res,next){
 console.log(req.params.url) 

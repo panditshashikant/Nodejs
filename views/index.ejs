@@ -93,7 +93,9 @@ footer {
   <% for(var i=0; i < topics.length; i++) { %>
    <md-list-item>
    <p><a href="/<%=topics[i].name%>" ng-click="closeSideNavPanel(topic[i])"><%=topics[i].name%></a></p>
-    <%if(topics[i].links.length>0){%>
+  </md-list-item>
+  <md-list-item>
+     <%if(topics[i].links.length>0){%>
     <ul>
       <% for(var j=0; j < topics[i].links.length; j++) { %>
       <li>

@@ -1,6 +1,38 @@
 .text-align-left{
     text-align: left;
 }
-ul {
+ul.a {
     list-style-image: url(/images/sqpurple.gif);
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 5px;
+}
+ul.a li{
+    margin-top: 5px;
+}
+.text-size-20{
+    font-size: 20px;
+}
+.text-size-24{
+    font-size: 24px;
+    font-weight: bold;
+}
+.text-decoration-underline
+{
+    text-decoration: underline
+}
+.git-download
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: #f14e32;
+}
+.markdown-format ol>li:before{content:counter(li);counter-increment:li;position:absolute;top:0;left:0;height:100%;width:30px;padding:0 10px 0 0;color:#999;font-size:22px;font-weight:700;line-height:35px;text-align:right;border-right:1}
+
+.code-pre
+{
+    background-color: black;
+    color:white;
+    width: 50%;
+    padding:5px;
 }
